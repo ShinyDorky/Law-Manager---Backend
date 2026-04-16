@@ -30,6 +30,8 @@ public class LawOption {
     @NotBlank
     @NotNull
     private String canPass;
+    @NotNull
+    private Integer placeInOrder;
     private String passCost;
     private String onPass;
     @NotNull

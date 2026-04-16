@@ -23,6 +23,8 @@ public class LawOptionDto {
     private String canKeep;
     @NotBlank
     private String canPass;
+    @NotNull
+    private Integer placeInOrder;
     private String passCost;
     private String onPass;
     @NotNull
