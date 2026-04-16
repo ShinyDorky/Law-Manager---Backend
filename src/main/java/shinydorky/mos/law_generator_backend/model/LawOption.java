@@ -37,6 +37,13 @@ public class LawOption {
     @NotNull
     private boolean isDefault;
 
+
+    private Integer statePowerOpinion;
+    private Integer militaryOpinion;
+    private Integer religiousUnityOpinion;
+    private Integer culturalToleranceOpinion;
+    private Integer populismOpinion;
+
     @ManyToOne
     @JoinColumn(name="law_group_id")
     private LawGroup lawGroup;
