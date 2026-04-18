@@ -29,4 +29,10 @@ public class LawOptionDto {
     private String onPass;
     @NotNull
     private boolean isDefault;
+
+    private Integer statePowerOpinion;
+    private Integer militaryOpinion;
+    private Integer religiousUnityOpinion;
+    private Integer culturalToleranceOpinion;
+    private Integer populismOpinion;
 }
