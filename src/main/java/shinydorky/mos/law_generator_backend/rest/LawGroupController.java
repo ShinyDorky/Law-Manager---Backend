@@ -74,6 +74,8 @@ public class LawGroupController {
             return new ResponseEntity<>("There is no LawType with such ID.", HttpStatus.NOT_FOUND);
         }
 
+        lawType.get().getLawGroups().add(entity);
+        entity.setLawType(lawType.get());
         lawGroupRepository.save(entity);
         HttpHeaders headers = new HttpHeaders();
         URI location = ServletUriComponentsBuilder.fromCurrentRequest()
