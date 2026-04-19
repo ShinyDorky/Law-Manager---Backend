@@ -23,13 +23,16 @@ public class LawOption {
     private String name;
     @NotBlank
     @NotNull
-    private String desc;
+    private String signature;
     @NotBlank
+    @NotNull
+    private String desc;
     @NotNull
     private String canKeep;
-    @NotBlank
     @NotNull
     private String canPass;
+    @NotNull
+    private String effects;
     @NotNull
     private Integer placeInOrder;
     private String passCost;

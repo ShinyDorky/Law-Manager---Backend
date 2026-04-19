@@ -8,9 +8,12 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
+import shinydorky.mos.law_generator_backend.dto.LawGroupDto;
 import shinydorky.mos.law_generator_backend.dto.LawTypeContentsDto;
 import shinydorky.mos.law_generator_backend.dto.LawTypeDto;
+import shinydorky.mos.law_generator_backend.model.LawGroup;
 import shinydorky.mos.law_generator_backend.model.LawType;
+import shinydorky.mos.law_generator_backend.repository.LawGroupRepository;
 import shinydorky.mos.law_generator_backend.repository.LawTypeRepository;
 
 import java.net.URI;
@@ -25,6 +28,7 @@ import java.util.stream.Collectors;
 public class LawTypeController {
     private final ModelMapper modelMapper;
     private final LawTypeRepository lawTypeRepository;
+    private final LawGroupRepository lawGroupRepository;
 
 
 
@@ -37,6 +41,7 @@ public class LawTypeController {
         return new ResponseEntity<>(result, HttpStatus.OK);
     }
 
+
     @GetMapping("/{lawTypeId}")
     public ResponseEntity<LawTypeContentsDto> getLawTypeById(@PathVariable Long lawTypeId){
         Optional<LawType> lawType = lawTypeRepository.findById(lawTypeId);
@@ -47,6 +52,15 @@ public class LawTypeController {
         else {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
+    }
+
+    @GetMapping("/{lawTypeId}/lawGroups")
+    public ResponseEntity<Collection<LawGroupDto>> getLawGroupsByLawType(@RequestParam long lawTypeId){
+        List<LawGroup> allLawGroups = lawGroupRepository.getLawGroupByTypeId(lawTypeId);
+        List<LawGroupDto> result = allLawGroups.stream()
+                .map(e -> {return modelMapper.map(e, LawGroupDto.class);})
+                .collect(Collectors.toList());
+        return new ResponseEntity<>(result, HttpStatus.OK);
     }
 
     @PostMapping

@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import shinydorky.mos.law_generator_backend.dto.LawGroupContentsDto;
 import shinydorky.mos.law_generator_backend.dto.LawGroupDto;
+import shinydorky.mos.law_generator_backend.dto.LawOptionDto;
 import shinydorky.mos.law_generator_backend.model.LawGroup;
 import shinydorky.mos.law_generator_backend.model.LawOption;
 import shinydorky.mos.law_generator_backend.model.LawType;
@@ -30,6 +31,7 @@ public class LawGroupController {
     private final ModelMapper modelMapper;
     private final LawGroupRepository lawGroupRepository;
     private final LawTypeRepository lawTypeRepository;
+    private final LawOptionRepository lawOptionRepository;
 
 
 
@@ -52,6 +54,15 @@ public class LawGroupController {
         else {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
+    }
+
+    @GetMapping("/{lawGroupId}/lawOptions")
+    public ResponseEntity<Collection<LawOptionDto>> getLawGroupsByLawType(@RequestParam long lawTypeId){
+        List<LawOption> allLawOptions = lawOptionRepository.getLawOptionByGroupId(lawTypeId);
+        List<LawOptionDto> result = allLawOptions.stream()
+                .map(e -> {return modelMapper.map(e, LawOptionDto.class);})
+                .collect(Collectors.toList());
+        return new ResponseEntity<>(result, HttpStatus.OK);
     }
 
     @PostMapping("/{lawTypeId}")
