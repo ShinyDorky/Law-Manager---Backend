@@ -13,15 +13,18 @@ import lombok.NoArgsConstructor;
 @Builder
 public class LawOptionDto {
     private Long id;
+    @NotNull
     @NotBlank
     private String signature;
+    @NotNull
     @NotBlank
     private String name;
+    @NotNull
     @NotBlank
     private String desc;
-    @NotBlank
+    @NotNull
     private String canKeep;
-    @NotBlank
+    @NotNull
     private String canPass;
     @NotNull
     private Integer placeInOrder;
