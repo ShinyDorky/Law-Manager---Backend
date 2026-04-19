@@ -23,5 +23,5 @@ public class LawTypeContentsDto {
     @NotBlank
     @NotNull
     private String name;
-    private Set<LawGroup> lawGroups;
+    private Set<LawGroupDto> lawGroups;
 }
