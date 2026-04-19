@@ -55,7 +55,7 @@ public class LawTypeController {
     }
 
     @GetMapping("/{lawTypeId}/lawGroups")
-    public ResponseEntity<Collection<LawGroupDto>> getLawGroupsByLawType(@RequestParam long lawTypeId){
+    public ResponseEntity<Collection<LawGroupDto>> getLawGroupsByLawType(@PathVariable long lawTypeId){
         List<LawGroup> allLawGroups = lawGroupRepository.getLawGroupByTypeId(lawTypeId);
         List<LawGroupDto> result = allLawGroups.stream()
                 .map(e -> {return modelMapper.map(e, LawGroupDto.class);})
