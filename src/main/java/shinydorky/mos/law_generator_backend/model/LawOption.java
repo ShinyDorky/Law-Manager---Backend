@@ -37,8 +37,7 @@ public class LawOption {
     private Integer placeInOrder;
     private String passCost;
     private String onPass;
-    @NotNull
-    private boolean isDefault;
+//    private boolean isDefault;
 
 
     private Integer statePowerOpinion;
