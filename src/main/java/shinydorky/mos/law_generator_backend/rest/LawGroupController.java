@@ -95,6 +95,7 @@ public class LawGroupController {
 
         lawGroupDto.setId(lawGroupId);
         LawGroup entity = convertToEntity(lawGroupDto);
+        entity.setLawType(currentDish.get().getLawType());
         lawGroupRepository.save(entity);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }

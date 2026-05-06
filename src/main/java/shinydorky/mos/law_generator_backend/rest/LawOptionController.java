@@ -79,6 +79,7 @@ public class LawOptionController {
         }
         lawOptionDto.setId(lawOptionId);
         LawOption entity = convertToEntity(lawOptionDto);
+        entity.setLawGroup(currentDish.get().getLawGroup());
         lawOptionRepository.save(entity);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
