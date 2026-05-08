@@ -20,6 +20,7 @@ import shinydorky.mos.law_generator_backend.repository.LawTypeRepository;
 
 import java.net.URI;
 import java.util.Collection;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -61,6 +62,12 @@ public class LawGroupController {
         List<LawOption> allLawOptions = lawOptionRepository.getLawOptionByGroupId(lawGroupId);
         List<LawOptionDto> result = allLawOptions.stream()
                 .map(e -> {return modelMapper.map(e, LawOptionDto.class);})
+                .sorted(new Comparator<LawOptionDto>() {
+                    @Override
+                    public int compare(LawOptionDto o1, LawOptionDto o2) {
+                        return o1.getPlaceInOrder() - o2.getPlaceInOrder();
+                    }
+                })
                 .collect(Collectors.toList());
         return new ResponseEntity<>(result, HttpStatus.OK);
     }
