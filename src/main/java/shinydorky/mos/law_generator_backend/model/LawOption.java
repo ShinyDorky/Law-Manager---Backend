@@ -20,26 +20,27 @@ public class LawOption {
 
     @NotBlank
     @NotNull
-    private String name;
+    private String name; // how will it appear in display
     @NotBlank
     @NotNull
-    private String signature;
+    private String signature; // how will it appear in code
     @NotBlank
     @NotNull
-    private String desc;
+    private String desc; // how will it be described
     @NotNull
-    private String canKeep;
+    private String canKeep; // conditions for keeping this law
     @NotNull
-    private String canPass;
+    private String canPass; // conditions for passing this law
     @NotNull
-    private String effects;
+    private String effects; // what modifiers will this law apply
     @NotNull
-    private Integer placeInOrder;
-    private String passCost;
-    private String onPass;
+    private Integer placeInOrder; // order in law group, used to determine from which laws you can pass this law
+    private String passCost; // price of passing law
+    private String onPass; // what will happen when this law is passed
 //    private boolean isDefault;
 
 
+    //Law opinion multipliers - how much the followers of particular ideas will like or dislike this law
     private Integer statePowerOpinion;
     private Integer militaryOpinion;
     private Integer religiousUnityOpinion;

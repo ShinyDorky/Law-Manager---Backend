@@ -17,9 +17,9 @@ public class LawType {
     private Long id;
 
     @NotBlank
-    private String signature;
+    private String signature; // how will it appear in code
     @NotBlank
-    private String name;
+    private String name; // how will it appear in display
 
     @OneToMany(mappedBy = "lawType", cascade = CascadeType.REMOVE)
     @ToString.Exclude

@@ -19,13 +19,13 @@ public class LawGroup {
 
     @NotNull
     @NotBlank
-    private String signature;
+    private String signature; // how will it appear in code
     @NotNull
     @NotBlank
-    private String name;
+    private String name; // how will it appear in display
     @NotNull
     @NotBlank
-    private String desc;
+    private String desc; // how will it be described (not visible for now)
 
     @OneToMany(mappedBy = "lawGroup", cascade = CascadeType.REMOVE)
     @ToString.Exclude
