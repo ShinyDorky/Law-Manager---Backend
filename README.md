@@ -1,6 +1,6 @@
 # MOS Law Generator - backend
 A Spring Boot application functioning as a backend for my
-[Law Manager](https://github.com/ShinyDorky/law_generator_backend) - a tool designed in order to help me with
+[Law Manager](https://github.com/ShinyDorky/law_generator_frontend) - a tool designed in order to help me with
 creating and managing laws in my CK3 mod.
 
 ## How it works
