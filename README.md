@@ -1,4 +1,4 @@
-# MOS Law Generator - backend
+# MOS Law Manager - backend
 A Spring Boot application functioning as a backend for my
 [Law Manager](https://github.com/ShinyDorky/law_generator_frontend) - a tool designed in order to help me with
 creating and managing laws in my CK3 mod.
@@ -34,7 +34,9 @@ the following command:
 
 ``java -jar .\[FILE_NAME].jar``
 
-Alternatively you can download both files in a package (TODO: INSERT LINK) and use an included .bat file.
+Alternatively you can download both files in a
+[release package](https://github.com/ShinyDorky/law_generator_frontend/releases/tag/1.0.0)
+and use an included .bat file.
 
 ## Requirements
 As long as you have Java installed, it should run.
